@@ -11,5 +11,11 @@ age = int(input("Please enter your age: "))
 yearsToHundred = 100 - age
 turnHundred = int(year) + yearsToHundred
 
-print(name + " will turn 100 in the year "+ str(turnHundred))
+message = name + " will turn 100 in the year "+ str(turnHundred)
+
+print(message)
+
+repeat = int(input("Please enter integer to repeat message: "))
+
+print(repeat * message)
 
