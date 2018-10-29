@@ -17,5 +17,5 @@ print(message)
 
 repeat = int(input("Please enter integer to repeat message: "))
 
-print(repeat * message)
+print(repeat * (message + "\n"))
 
