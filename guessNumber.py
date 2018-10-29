@@ -13,7 +13,7 @@ while guess !=  sysGenNum:
 	elif guess < sysGenNum:
 		print("Guess is too low")
 		guess = int(input("Input guess (between 0 and 10): "))
-	elif guess == sysGenNum:
+	elif guess == sysGenNum: #This line would not be reached. This line should be removed.
 		print("You are correct!")
 
 if guess == sysGenNum:
