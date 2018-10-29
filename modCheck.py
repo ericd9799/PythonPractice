@@ -8,3 +8,6 @@ elif (modCheck % 2) == 0:
   print(str(modCheck) + " is even")
 elif (modCheck % 2) != 0:
   print(str(modCheck) + " is odd")
+
+num = int(input("Enter 2 numbers:"))
+print ("Num: "+num+", Check: "+check)
