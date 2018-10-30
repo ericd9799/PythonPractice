@@ -9,5 +9,7 @@ elif (modCheck % 2) == 0:
 elif (modCheck % 2) != 0:
   print(str(modCheck) + " is odd")
 
-num = int(input("Enter 2 numbers:"))
+num, check = input("Enter 2 numbers:").split()
+num = int(num)
+check = int(check)
 print ("Num: "+num+", Check: "+check)
