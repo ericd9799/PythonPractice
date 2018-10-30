@@ -12,4 +12,8 @@ elif (modCheck % 2) != 0:
 num, check = input("Enter 2 numbers:").split()
 num = int(num)
 check = int(check)
-print ("Num: "+num+", Check: "+check)
+
+if num % check == 0:
+	print(str(check) + " divides evenly into " + str(num))
+else:
+	print(str(check) + " does not divide evenly into " + str(num))
