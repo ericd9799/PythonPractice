@@ -8,9 +8,15 @@ def main():
     str = i + str
     
    if str == word:
-    print("Palidrome")
+    print("Palidrome -- string reversal")
    else:
-    print("Not palidrome")
+    print("Not palidrome -- string reversal")
+    
+   if word == word[::-1]:
+      print ("Palidrome -- word slicing")
+   else:
+      print ("Not palindrome -- word slicing")   
+    
 
 if(__name__) == '__main__':
   main()
