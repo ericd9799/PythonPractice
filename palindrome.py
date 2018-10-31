@@ -1,22 +1,25 @@
 #! /usr/bin/python3
 
 def main():
-  str = ''
-  word = input("Please enter word: ")
-  
-  for i in word:
-    str = i + str
-    
-   if str == word:
-    print("Palidrome -- string reversal")
-   else:
-    print("Not palidrome -- string reversal")
-    
-   if word == word[::-1]:
-      print ("Palidrome -- word slicing")
-   else:
-      print ("Not palindrome -- word slicing")   
+	string  = ""
+	string2 = ""
+	word = input("Please enter word: ")
+
+	for x in word:
+		string = x + string
+	
+	if string == word:
+		print(word+" is a palindrome -- for loop reversal")
+	else:
+		print(word+" is not a palindrome -- for loo reversal")
+
+	string2 = word[::-1]
+
+	if string2 == word:
+		print(word+" is a palindrome -- string slicing")
+	else:
+		print(word+" is not a palindrome -- string slicing")
     
 
 if(__name__) == '__main__':
-  main()
+	main()
