@@ -11,7 +11,7 @@ def main():
 	if string == word:
 		print(word+" is a palindrome -- for loop reversal")
 	else:
-		print(word+" is not a palindrome -- for loo reversal")
+		print(word+" is not a palindrome -- for loop reversal")
 
 	string2 = word[::-1]
 
