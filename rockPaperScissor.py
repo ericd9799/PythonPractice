@@ -25,13 +25,13 @@ def main():
 	won = "N"
 	player1 = player(input("Enter name for player 1: "))
 	player2 = player(input("Enter name for player 2: "))
-		
-	player1.setChoice(input(player1.getName() + " enter (R)ock, (P)aper, (S)cissor: "))
-	player2.setChoice(input(player2.getName() + " enter (R)ock, (P)aper, (S)cissor: "))
+	
+	while won != "Y":
+		player1.setChoice(input(player1.getName() + " enter (R)ock, (P)aper, (S)cissor: "))
+		player2.setChoice(input(player2.getName() + " enter (R)ock, (P)aper, (S)cissor: "))
 	#print(player1)
 	#print(player2)
-
-	while won != "Y":
+	
 		if player1.getChoice() == player2.getChoice():
 			print ("Tie!")
 		elif player1.getChoice() == "R":
