@@ -56,9 +56,8 @@ def main():
 				print(player2.getName() + " wins!")
 				won = "Y"
 	
+	again = input("Enter Y to play again: ")
 
 if __name__ == "__main__":
 	main()
 	
-	if input("Enter Y to play again: ") == "Y":
-		main()
