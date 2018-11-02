@@ -44,14 +44,21 @@ def main():
 		elif player1.getChoice() == "S":
 			if player2.getChoice() == "P":
 				print(player1.getName() + " wins!")
+				won = "Y"
 			else:
 				print(player2.getName() + " wins!")
+				won = "Y"
 		elif player1.getChoice() == "P":
 			if player2.getChoice() == "R":
 				print(player1.getName() + " wins!")
+				won = "Y"
 			else:
-				print(player2.getName() + " wins!")	
+				print(player2.getName() + " wins!")
+				won = "Y"
 	
 
 if __name__ == "__main__":
 	main()
+	
+	if input("Enter Y to play again: ") == "Y":
+		main()
