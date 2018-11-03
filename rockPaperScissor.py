@@ -1,5 +1,7 @@
 #! /usr/bin/python3
 
+import getpass
+
 class player():
 	choice = ""
 	def __init__(self, name):
@@ -8,7 +10,7 @@ class player():
 	def setChoice(self, choice):
 		'''Need to work on error handling'''
 		#if choice in ["R", "P", "S"]:
-		self.choice = choice
+		self.choice = choice.upper()
 		#else:
 			#print(choice + " is not a valid option.")
 			#self.choice = print (self.name + " enter (R)ock, (P)aper, (S)cissor: ")
@@ -28,10 +30,10 @@ def main():
 	player2 = player(input("Enter name for player 2: "))
 	
 	while True:
-		player1.setChoice(input(player1.getName() + " enter (R)ock, (P)aper, (S)cissor: "))
-		player2.setChoice(input(player2.getName() + " enter (R)ock, (P)aper, (S)cissor: "))
+		player1.setChoice(getpass.getpass(prompt = player1.getName() + " enter (R)ock, (P)aper, (S)cissor: "))
+		player2.setChoice(getpass.getpass(prompt = player2.getName() + " enter (R)ock, (P)aper, (S)cissor: "))
 		#print(player1)
-		#print(player2)
+		#print(player1)
 	
 		if player1.getChoice() == player2.getChoice():
 			print ("Tie!")
