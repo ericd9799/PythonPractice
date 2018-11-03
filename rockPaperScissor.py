@@ -21,13 +21,6 @@ class player():
 
 	def getChoice(self):
 		return self.choice
-	
-def continueAsk():
-	if input("Enter Y to play again: ") == "Y":
-		continue
-	else:
-		print("Game over")
-		break
 		
 def main():
 
@@ -46,19 +39,48 @@ def main():
 		elif player1.getChoice() == "R":
 			if player2.getChoice() == "S":
 				print(player1.getName() + " wins!")
-				continueAsk()
+				if input("Enter Y to play again: ") == "Y":
+					continue
+				else:
+					print("Game over")
+					break
 			else:
-				print(player2.getName() + " wins!")	
+				print(player2.getName() + " wins!")
+				if input("Enter Y to play again: ") == "Y":
+					continue
+				else:
+					print("Game over")
+					break
 		elif player1.getChoice() == "S":
 			if player2.getChoice() == "P":
 				print(player1.getName() + " wins!")
+				if input("Enter Y to play again: ") == "Y":
+					continue
+				else:
+					print("Game over")
+					break
 			else:
 				print(player2.getName() + " wins!")
+				if input("Enter Y to play again: ") == "Y":
+					continue
+				else:
+					print("Game over")
+					break
 		elif player1.getChoice() == "P":
 			if player2.getChoice() == "R":
 				print(player1.getName() + " wins!")
+				if input("Enter Y to play again: ") == "Y":
+					continue
+				else:
+					print("Game over")
+					break
 			else:
 				print(player2.getName() + " wins!")
+				if input("Enter Y to play again: ") == "Y":
+					continue
+				else:
+					print("Game over")
+					break
 
 if __name__ == "__main__":
 	main()	
