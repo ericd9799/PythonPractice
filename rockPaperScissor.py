@@ -26,7 +26,7 @@ def main():
 	player1 = player(input("Enter name for player 1: "))
 	player2 = player(input("Enter name for player 2: "))
 	
-	while won != "Y":
+	while won != "Y" and again = != "N":
 		player1.setChoice(input(player1.getName() + " enter (R)ock, (P)aper, (S)cissor: "))
 		player2.setChoice(input(player2.getName() + " enter (R)ock, (P)aper, (S)cissor: "))
 		#print(player1)
@@ -56,15 +56,15 @@ def main():
 			else:
 				print(player2.getName() + " wins!")
 				won = "Y"
-	
+		again = input("Enter Y to play again")
 	'''When someone has won, ask if want to restart.
 	Using recursive call of main() method to restart game.'''
-	if won == "Y":
+	'''if won == "Y":
 		again = input("Enter Y to play again: ")
 		if again == "Y":
 			main()
 		else: 
-			sys.exit()	
+			sys.exit()'''	
 
 if __name__ == "__main__":
 	main()
