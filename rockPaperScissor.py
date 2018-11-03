@@ -64,7 +64,7 @@ def main():
 		if again == "Y":
 			main()
 		else: 
-			break
+			sys.exit()	
 
 if __name__ == "__main__":
 	main()
