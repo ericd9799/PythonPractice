@@ -22,11 +22,11 @@ class player():
 	def getChoice(self):
 		return self.choice
 def main():
-	won = "N"
+
 	player1 = player(input("Enter name for player 1: "))
 	player2 = player(input("Enter name for player 2: "))
 	
-	while won != "Y" and again = != "N":
+	while True:
 		player1.setChoice(input(player1.getName() + " enter (R)ock, (P)aper, (S)cissor: "))
 		player2.setChoice(input(player2.getName() + " enter (R)ock, (P)aper, (S)cissor: "))
 		#print(player1)
@@ -34,38 +34,53 @@ def main():
 	
 		if player1.getChoice() == player2.getChoice():
 			print ("Tie!")
-			won = "N"
+			
 		elif player1.getChoice() == "R":
 			if player2.getChoice() == "S":
 				print(player1.getName() + " wins!")
-				won = "Y"
+				
+				if input("Enter Y to play again: ") == "Y":
+					continue
+				else:
+					print("Game over")
+					break
 			else:
 				print(player2.getName() + " wins!")
-				won = "Y"
+				if input("Enter Y to play again: ") == "Y":
+					continue
+				else:
+					print("Game over")
+					break	
 		elif player1.getChoice() == "S":
 			if player2.getChoice() == "P":
 				print(player1.getName() + " wins!")
-				won = "Y"
+				if input("Enter Y to play again: ") == "Y":
+					continue
+				else:
+					print("Game over")
+					break
 			else:
 				print(player2.getName() + " wins!")
-				won = "Y"
+				if input("Enter Y to play again: ") == "Y":
+                                	continue
+                                else:
+                                	print("Game over")
+                                	break
 		elif player1.getChoice() == "P":
 			if player2.getChoice() == "R":
 				print(player1.getName() + " wins!")
-				won = "Y"
+				if input("Enter Y to play again: ") == "Y":
+                                        continue
+                                else:
+                                        print("Game over")
+                                        break
 			else:
 				print(player2.getName() + " wins!")
-				won = "Y"
-		again = input("Enter Y to play again")
-	'''When someone has won, ask if want to restart.
-	Using recursive call of main() method to restart game.'''
-	'''if won == "Y":
-		again = input("Enter Y to play again: ")
-		if again == "Y":
-			main()
-		else: 
-			sys.exit()'''	
+				if input("Enter Y to play again: ") == "Y":
+                                        continue
+                                else:
+                                        print("Game over")
+                                        break
 
 if __name__ == "__main__":
-	main()
-	
+	main()	
