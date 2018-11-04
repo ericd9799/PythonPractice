@@ -8,3 +8,5 @@
 * break: Breaks out of the current closest enclosing loop
 * continue: Goes to the top of the closets enclosing loop
 * pass: Does nothing at all
+
+* zip: zip together elements of list to form tuple. zip will only go as far as matching number of items in all lists.
