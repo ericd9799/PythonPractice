@@ -15,3 +15,9 @@
 
 * "*args" - argument
 * "*kwargs" - keyword argument
+
+* able to set argument default when initializing arguments in function name line.
+```python
+def myFunc(a, b, c = 0, d = 0):
+  return sum((a, b, c, d)) * 0.05
+```
