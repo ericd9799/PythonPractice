@@ -12,3 +12,6 @@
 * zip: zip together elements of list to form tuple. zip will only go as far as matching number of items in all lists.
 
 * list take third parameter for step size.
+
+* "*args" - argument
+* "*kwargs" - keyword argument
