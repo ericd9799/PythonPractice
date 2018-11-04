@@ -13,8 +13,19 @@
 
 * list take third parameter for step size.
 
-* "*args" - argument
-* "*kwargs" - keyword argument
+* *args - argument; allow to pass in as many arguments as want; arguments treated as tuple; "args" is arbitrary name
+```python
+def myFunc(*args):
+  return sum(args) * 0.05
+```
+* **kwargs - keyword argument; treated as dictionary; "kwargs" is arbitrary name
+```python
+def myFunc(**kwargs):
+  if 'fruit' in kwargs:
+    print('My fruit of choice is {}'.format(kwargs['fruit']))
+    
+myFunc(fruit = 'apple', veggie = 'lettuce')
+```
 
 * able to set argument default when initializing arguments in function name line.
 ```python
