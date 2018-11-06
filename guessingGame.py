@@ -18,8 +18,9 @@ def main():
 			print ("Too high!")
 			continue
 		elif guess == genNum:
-			print ("Correct! You took "+ str(guessCnt) + " attempts!")
+			print ("Correct! You took {} attempts!".format(guessCnt))
 			if input("Enter Y to continue: ").upper() == "Y":
+				guessCnt = 0
 				continue
 			else:
 				break
