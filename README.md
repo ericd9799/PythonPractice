@@ -36,4 +36,8 @@ myFunc(fruit = 'apple', veggie = 'lettuce')
 def myFunc(a, b, c = 0, d = 0):
   return sum((a, b, c, d)) * 0.05
 ```
-
+## L.E.G.B.Rule
+* Local - variable defined within lambda or function
+* Enclosed Function Local - variable defined in any enclosed lambda or function
+* Global - at the top level
+* Built-in - preassigned names
