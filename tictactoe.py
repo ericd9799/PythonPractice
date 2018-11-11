@@ -22,8 +22,25 @@ def player_assign():
 
 	return(player1, player2)
 
-display_board([' ']*10)
+def player_input(board,marker, player):
+	
+	position = int(input('Player {} selection board position (1 - 9): '.format(player)))
+	board.insert(position, marker)
+	return board
+	
+board = [' ']*10
+#print(board)
+board.insert(0, '#')
+#print(board)
+#display_board([' ']*10)
 player1_marker, player2_marker = player_assign()
 
 print(player1_marker)
 print(player2_marker)
+
+board = player_input(board, player1_marker, '1')
+display_board(board)
+#print(board)
+
+board = player_input(board, player2_marker, '2')
+display_board(board)
