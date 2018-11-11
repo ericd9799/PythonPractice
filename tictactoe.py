@@ -27,6 +27,10 @@ def player_input(board,marker, player):
 	position = int(input('Player {} selection board position (1 - 9): '.format(player)))
 	board.insert(position, marker)
 	return board
+
+def win_check(board, mark):
+	# 3 in horizontal, 3 in diagonal, 3 in vertical
+	pass
 	
 board = [' ']*10
 #print(board)
