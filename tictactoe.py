@@ -1,5 +1,7 @@
 #! usr/bin/python3
 
+import random
+
 def display_board(board):
 	sections = {'top': '{}||{}||{}', 'mid':'{}||{}||{}', 'bot':'{}||{}||{}', 'horizontal':'-------'}
 
@@ -38,13 +40,55 @@ def win_check(board, mark):
 		return True
 	else:
 		return False
+
+def choose_first():
+	if random.randint(0,1) == 1:
+		return 'Player 1'
+	else:
+		return 'Player 2'
 	
-board = [' ']*10
+def space_check(board, position):
+	return board[position] == ' '
+
+def full_board_check(board):
+	for i in range(1, 10):
+		if space_check(board, i):
+			return False
+	return True
+
+def player_choice(board):
+	position = int(input('Select board position (1 - 9): '))
+	if space_check(board, position):
+		return position
+	
+def replay():
+	return input('Player again  (Y/N)').upper() == 'Y'
+
+print('Welcome to Tic Tac Toe!')
+
+while True:
+    # Set the game up here
+	board = [' ']*10
+	player1_marker, player2_marker = player_assign()
+	print (choose_first() + ' goes first')
+	game_on = True
+    #while game_on:
+        #Player 1 Turn
+        
+        
+        # Player2's turn.
+            
+            #pass
+
+    #if not replay():
+        #break
+	
+
 #print(board)
 board.insert(0, '#')
 #print(board)
 #display_board([' ']*10)
-player1_marker, player2_marker = player_assign()
+
 
 print(player1_marker)
 print(player2_marker)
