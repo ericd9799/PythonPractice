@@ -24,9 +24,9 @@ def player_assign():
 
 	return(player1, player2)
 
-def player_input(board,marker, player):
+def player_input(board,marker,position):
 	
-	position = int(input('Player {} selection board position (1 - 9): '.format(player)))
+	#position = int(input('Player {} selection board position (1 - 9): '.format(player)))
 	board.insert(position, marker)
 	return board
 
@@ -70,32 +70,22 @@ while True:
     # Set the game up here
 	board = [' ']*10
 	player1_marker, player2_marker = player_assign()
-	print (choose_first() + ' goes first')
+	startPlayer = choose_first()
+	print (startPlayer + ' goes first')
 	game_on = True
-    #while game_on:
+	
+	while game_on:
         #Player 1 Turn
-        
-        
+		if startPlayer == 'Player 1':
+			display_board(board)
+			position = player_choice(board)
+			player_input(board,player1_marker,position)
+
+			turn = 'Player 2'	 
         # Player2's turn.
-            
-            #pass
+		else:
+        		display_board(board)
 
     #if not replay():
         #break
-	
 
-#print(board)
-board.insert(0, '#')
-#print(board)
-#display_board([' ']*10)
-
-
-print(player1_marker)
-print(player2_marker)
-
-board = player_input(board, player1_marker, '1')
-display_board(board)
-#print(board)
-
-board = player_input(board, player2_marker, '2')
-display_board(board)
