@@ -17,9 +17,7 @@ def userInput():
 			check = False
 		else:
 			check = True
-
-def main():
-	passStrength = userInput()
+def passGeneration(stren):
 	password = ''
 	for i in range(0, 10):
 		key = random.randrange(0, 4)
@@ -32,7 +30,11 @@ def main():
 			password += random.choice(digit)
 		else:
 			password += random.choice(punctuation)
-	print(password)
+	return password
+
+def main():
+	passStrength = userInput()
+	passGeneration(passStrength)
 
 if __name__ == '__main__':
 	main()
