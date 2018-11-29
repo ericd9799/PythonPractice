@@ -8,6 +8,9 @@ alphaLower = string.ascii_lowercase # Weight: 20
 digit = string.digits # Weight: 10
 punctuation = '!@#$%.' # Weight: 5
 
+# 0 - 20 is upper, 20 - 40 is lower, 40 - 50 is digits, 50 - 55 is punctuation
+categoryKey = {20:'upper', 40:'lower', 50:'digit', 55:'punct'}
+
 def userInput():
 	check = True
 	while check==True:
