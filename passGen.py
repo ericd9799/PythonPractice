@@ -3,10 +3,10 @@
 import random
 import string
 
-alphaUpper = string.ascii_uppercase
-alphaLower = string.ascii_lowercase
-digit = string.digits
-punctuation = '!@#$%.'
+alphaUpper = string.ascii_uppercase # Weight: 20
+alphaLower = string.ascii_lowercase # Weight: 20
+digit = string.digits # Weight: 10
+punctuation = '!@#$%.' # Weight: 5
 
 def userInput():
 	check = True
