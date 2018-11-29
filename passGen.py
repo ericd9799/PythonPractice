@@ -19,6 +19,7 @@ def userInput():
 			check = True
 def passGeneration(stren):
 	password = ''
+	# Need to add logic to generate random weight key to ensure more emphasis on alpha-numeric rather than puncuation
 	for i in range(0, 10):
 		key = random.randrange(0, 4)
 		if key == 0:
@@ -34,7 +35,7 @@ def passGeneration(stren):
 
 def main():
 	passStrength = userInput()
-	passGeneration(passStrength)
+	print(passGeneration(passStrength))
 
 if __name__ == '__main__':
 	main()
