@@ -20,47 +20,32 @@ def userInput():
 			check = False
 		else:
 			check = True
+def charSelection():
+	key = random.randrange(0, 55)
+	if key < 20:
+		#alphUpper
+		return random.choice(alphaUpper)
+	elif key >= 20 and key < 40:
+		return random.choice(alphaLower)
+	elif key >= 40 and key < 50:
+		return random.choice(digit)
+	elif key >= 50 and key <= 55:
+		return random.choice(punctuation)
+	
 def passGeneration(stren):
 	password = ''
 	if stren = 'strong':
 		# Need to add logic to generate random weight key to ensure more emphasis on alpha-numeric rather than puncuation
 		for i in range(0, 15):
-			key = random.randrange(0, 55)
-			if key < 20:
-				#alphUpper
-				password += random.choice(alphaUpper)
-			elif key >= 20 and key < 40:
-				password += random.choice(alphaLower)
-			elif key >= 40 and key < 50:
-				password += random.choice(digit)
-			elif key >= 50 and key <= 55:
-				password += random.choice(punctuation)
+			password+=charSelection()
 	elif stren = 'medium':
 		# Need to add logic to generate random weight key to ensure more emphasis on alpha-numeric rather than puncuation
 		for i in range(0, 8):
-			key = random.randrange(0, 55)
-			if key < 20:
-				#alphUpper
-				password += random.choice(alphaUpper)
-			elif key >= 20 and key < 40:
-				password += random.choice(alphaLower)
-			elif key >= 40 and key < 50:
-				password += random.choice(digit)
-			elif key >= 50 and key <= 55:
-				password += random.choice(punctuation)
+			password+=charSelection()
 	else:
 		# Need to add logic to generate random weight key to ensure more emphasis on alpha-numeric rather than puncuation
 		for i in range(0, 6):
-			key = random.randrange(0, 55)
-			if key < 20:
-				#alphUpper
-				password += random.choice(alphaUpper)
-			elif key >= 20 and key < 40:
-				password += random.choice(alphaLower)
-			elif key >= 40 and key < 50:
-				password += random.choice(digit)
-			elif key >= 50 and key <= 55:
-				password += random.choice(punctuation)
+			password+=charSelection()
 	return password
 
 def main():
