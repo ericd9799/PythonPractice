@@ -21,24 +21,24 @@ def userInput():
 		else:
 			check = True
 def charSelection():
-	key = random.randrange(0, 55)
-	if key < 20:
+	key = random.randrange(0, 40)
+	if key < 15:
 		#alphUpper
 		return random.choice(alphaUpper)
-	elif key >= 20 and key < 40:
+	elif key >= 15 and key < 30:
 		return random.choice(alphaLower)
-	elif key >= 40 and key < 50:
+	elif key >= 30 and key < 35:
 		return random.choice(digit)
-	elif key >= 50 and key <= 55:
+	elif key >= 35 and key <= 40:
 		return random.choice(punctuation)
 	
 def passGeneration(stren):
 	password = ''
-	if stren = 'strong':
+	if stren == 'strong':
 		# Need to add logic to generate random weight key to ensure more emphasis on alpha-numeric rather than puncuation
-		for i in range(0, 15):
+		for i in range(0, 10):
 			password+=charSelection()
-	elif stren = 'medium':
+	elif stren == 'medium':
 		# Need to add logic to generate random weight key to ensure more emphasis on alpha-numeric rather than puncuation
 		for i in range(0, 8):
 			password+=charSelection()
@@ -51,6 +51,13 @@ def passGeneration(stren):
 def main():
 	passStrength = userInput()
 	print(passGeneration(passStrength))
+
+	upperDict = dict(zip(range(0,26), string.ascii_uppercase))
+	lowerDict = dict(zip(range(0,26), string.ascii_lowercase))
+	digitDict = dict(zip(range(0,10), string.digits))
+	punctDict = {0:'!', 1:'@', 2:'#', 3:'$', 4:'%', 5:'.'}
+
+	print(punctDict)
 
 if __name__ == '__main__':
 	main()
