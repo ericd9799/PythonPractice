@@ -9,7 +9,7 @@ digit = string.digits # Weight: 10
 punctuation = '!@#$%.' # Weight: 5
 
 # 0 - 20 is upper, 20 - 40 is lower, 40 - 50 is digits, 50 - 55 is punctuation
-categoryKey = {20:'upper', 40:'lower', 50:'digit', 55:'punct'}
+categoryKey = {'upper':20, 'lower':40, 'digit':50, 'punct':55}
 
 def userInput():
 	check = True
@@ -22,18 +22,45 @@ def userInput():
 			check = True
 def passGeneration(stren):
 	password = ''
-	# Need to add logic to generate random weight key to ensure more emphasis on alpha-numeric rather than puncuation
-	for i in range(0, 10):
-		key = random.randrange(0, 4)
-		if key == 0:
-			#alphUpper
-			password += random.choice(alphaUpper)
-		elif key == 1:
-			password += random.choice(alphaLower)
-		elif key == 2:
-			password += random.choice(digit)
-		else:
-			password += random.choice(punctuation)
+	if stren = 'strong':
+		# Need to add logic to generate random weight key to ensure more emphasis on alpha-numeric rather than puncuation
+		for i in range(0, 15):
+			key = random.randrange(0, 55)
+			if key < 20:
+				#alphUpper
+				password += random.choice(alphaUpper)
+			elif key >= 20 and key < 40:
+				password += random.choice(alphaLower)
+			elif key >= 40 and key < 50:
+				password += random.choice(digit)
+			elif key >= 50 and key <= 55:
+				password += random.choice(punctuation)
+	elif stren = 'medium':
+		# Need to add logic to generate random weight key to ensure more emphasis on alpha-numeric rather than puncuation
+		for i in range(0, 8):
+			key = random.randrange(0, 55)
+			if key < 20:
+				#alphUpper
+				password += random.choice(alphaUpper)
+			elif key >= 20 and key < 40:
+				password += random.choice(alphaLower)
+			elif key >= 40 and key < 50:
+				password += random.choice(digit)
+			elif key >= 50 and key <= 55:
+				password += random.choice(punctuation)
+	else:
+		# Need to add logic to generate random weight key to ensure more emphasis on alpha-numeric rather than puncuation
+		for i in range(0, 6):
+			key = random.randrange(0, 55)
+			if key < 20:
+				#alphUpper
+				password += random.choice(alphaUpper)
+			elif key >= 20 and key < 40:
+				password += random.choice(alphaLower)
+			elif key >= 40 and key < 50:
+				password += random.choice(digit)
+			elif key >= 50 and key <= 55:
+				password += random.choice(punctuation)
 	return password
 
 def main():
