@@ -8,6 +8,11 @@ alphaLower = string.ascii_lowercase # Weight: 20
 digit = string.digits # Weight: 10
 punctuation = '!@#$%.' # Weight: 5
 
+upperDict = dict(zip(range(0,26), string.ascii_uppercase))
+lowerDict = dict(zip(range(0,26), string.ascii_lowercase))
+digitDict = dict(zip(range(0,10), string.digits))
+punctDict = {0:'!', 1:'@', 2:'#', 3:'$', 4:'%', 5:'.'}
+
 # 0 - 20 is upper, 20 - 40 is lower, 40 - 50 is digits, 50 - 55 is punctuation
 categoryKey = {'upper':20, 'lower':40, 'digit':50, 'punct':55}
 
@@ -24,13 +29,13 @@ def charSelection():
 	key = random.randrange(0, 40)
 	if key < 15:
 		#alphUpper
-		return random.choice(alphaUpper)
+		return upperDict[key]
 	elif key >= 15 and key < 30:
-		return random.choice(alphaLower)
+		return lowerDict[key]
 	elif key >= 30 and key < 35:
-		return random.choice(digit)
+		return digitDict[key]
 	elif key >= 35 and key <= 40:
-		return random.choice(punctuation)
+		return punctDict[key]
 	
 def passGeneration(stren):
 	password = ''
@@ -51,13 +56,6 @@ def passGeneration(stren):
 def main():
 	passStrength = userInput()
 	print(passGeneration(passStrength))
-
-	upperDict = dict(zip(range(0,26), string.ascii_uppercase))
-	lowerDict = dict(zip(range(0,26), string.ascii_lowercase))
-	digitDict = dict(zip(range(0,10), string.digits))
-	punctDict = {0:'!', 1:'@', 2:'#', 3:'$', 4:'%', 5:'.'}
-
-	print(punctDict)
 
 if __name__ == '__main__':
 	main()
