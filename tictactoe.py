@@ -70,22 +70,32 @@ while True:
     # Set the game up here
 	board = [' ']*10
 	player1_marker, player2_marker = player_assign()
-	startPlayer = choose_first()
+	#startPlayer = choose_first()
+	startPlayer = 'Player 1'
 	print (startPlayer + ' goes first')
 	game_on = True
-	
+
 	while game_on:
-        #Player 1 Turn
-		if startPlayer == 'Player 1':
+		if startPlayer == 'Player 1':	
 			display_board(board)
 			position = player_choice(board)
 			player_input(board,player1_marker,position)
+			if win_check(board,player1_marker) == True:
+				display_board(board)
+				print(startPlayer + ' won!')
+				game_on = False
+				break
+			startPlayer = 'Player 2'
+		elif startPlayer == 'Player 2':
+			display_board(board)
+			position = player_choice(board)
+			player_input(board,player2_marker,position)
+			if win_check(board,player2_marker) == True:
+				display_board(board)
+				print(startPlayer + ' won!')
+				game_on = False
+				break
+			startPlayer = 'Player 1'
 
-			turn = 'Player 2'	 
-        # Player2's turn.
-		else:
-        		display_board(board)
-
-    #if not replay():
-        #break
-
+	if replay() != True:
+		break			
