@@ -14,7 +14,7 @@ def player_assign():
 
 	while marker != 'X' and  marker != 'O':
 		marker = input('Player 1 enter X or O: ')
-	
+
 	player1 = marker
 
 	if player1 == 'X':
@@ -25,7 +25,7 @@ def player_assign():
 	return(player1, player2)
 
 def player_input(board,marker,position):
-	
+
 	#position = int(input('Player {} selection board position (1 - 9): '.format(player)))
 	board.insert(position, marker)
 	return board
@@ -46,7 +46,7 @@ def choose_first():
 		return 'Player 1'
 	else:
 		return 'Player 2'
-	
+
 def space_check(board, position):
 	return board[position] == ' '
 
@@ -60,7 +60,7 @@ def player_choice(board):
 	position = int(input('Select board position (1 - 9): '))
 	if space_check(board, position):
 		return position
-	
+
 def replay():
 	return input('Player again  (Y/N)').upper() == 'Y'
 
@@ -76,13 +76,18 @@ while True:
 	game_on = True
 
 	while game_on:
-		if startPlayer == 'Player 1':	
+		if startPlayer == 'Player 1':
 			display_board(board)
 			position = player_choice(board)
 			player_input(board,player1_marker,position)
 			if win_check(board,player1_marker) == True:
 				display_board(board)
 				print(startPlayer + ' won!')
+				game_on = False
+				break
+			elif full_board_check(board) == True:
+				display_board(board)
+				print('Draw!')
 				game_on = False
 				break
 			startPlayer = 'Player 2'
@@ -95,7 +100,12 @@ while True:
 				print(startPlayer + ' won!')
 				game_on = False
 				break
+			elif full_board_check(board) == True:
+				display_board(board)
+				print('Draw!')
+				game_on = False
+				break
 			startPlayer = 'Player 1'
 
 	if replay() != True:
-		break			
+		break
