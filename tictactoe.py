@@ -63,7 +63,7 @@ def player_choice(board,startPlayer):
 	if space_check(board, position) == True:
 		return position
 	else:
-		player_choice(board, startPlayer)
+		return ''
 
 def replay():
 	return input('Player again  (Y/N)').upper() == 'Y'
@@ -74,42 +74,48 @@ while True:
     # Set the game up here
 	board = [' ']*9
 	player1_marker, player2_marker = player_assign()
-	#startPlayer = choose_first()
-	startPlayer = 'Player 1'
+	startPlayer = choose_first()
+	#startPlayer = 'Player 1'
 	#print (startPlayer + ' goes first')
 	game_on = True
-
+	position = ''
 	while game_on:
 		if startPlayer == 'Player 1':
-			position = player_choice(board,startPlayer)
+			while position == '':
+				position = player_choice(board,startPlayer)
 			player_input(board,player1_marker,position)
 			display_board(board)
 			if win_check(board,player1_marker) == True:
-				display_board(board)
+				#display_board(board)
 				print(startPlayer + ' won!')
 				game_on = False
 				break
 			elif full_board_check(board) == True:
-				display_board(board)
+				#display_board(board)
 				print('Draw!')
 				game_on = False
 				break
 			startPlayer = 'Player 2'
+			# Reset position to allow for loop
+			position = ''
 		elif startPlayer == 'Player 2':
-			position = player_choice(board,startPlayer)
+			while position == '':
+				position = player_choice(board,startPlayer)
 			player_input(board,player2_marker,position)
 			display_board(board)
 			if win_check(board,player2_marker) == True:
-				display_board(board)
+				#display_board(board)
 				print(startPlayer + ' won!')
 				game_on = False
 				break
 			elif full_board_check(board) == True:
-				display_board(board)
+				#display_board(board)
 				print('Draw!')
 				game_on = False
 				break
 			startPlayer = 'Player 1'
+			# Reset position to allow for loop
+			position = ''
 
 	if replay() != True:
 		break
