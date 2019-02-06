@@ -5,9 +5,9 @@ import random
 def display_board(board):
 	sections = {'top': '{}||{}||{}', 'mid':'{}||{}||{}', 'bot':'{}||{}||{}', 'horizontal':'-------'}
 
-	print(sections['top'].format(board[1], board[2], board[3])+'\n'+sections['horizontal']+'\n'+
-		sections['mid'].format(board[4], board[5], board[6])+'\n'+sections['horizontal']+'\n'+
-		sections['bot'].format(board[7], board[8], board[9]))
+	print(sections['top'].format(board[0], board[1], board[2])+'\n'+sections['horizontal']+'\n'+
+		sections['mid'].format(board[3], board[4], board[5])+'\n'+sections['horizontal']+'\n'+
+		sections['bot'].format(board[6], board[7], board[8]))
 
 def player_assign():
 	marker = ''
@@ -27,16 +27,17 @@ def player_assign():
 def player_input(board,marker,position):
 
 	#position = int(input('Player {} selection board position (1 - 9): '.format(player)))
-	board.insert(position, marker)
+	#board.insert(position, marker)
+	board[position] = marker
 	return board
 
 def win_check(board, mark):
-	# 3 in horizontal, 3 in diagonal, 3 in vertical
-	if (board[1] == board[2] == board[3] == mark) or (board[4] == board[5] == board[6]  == mark) or (board[7] == board[8] == board[9] == mark):
+	# 3 in horizontal, 2 in diagonal, 3 in vertical
+	if (board[0] == board[1] == board[2] == mark) or (board[3] == board[4] == board[5]  == mark) or (board[6] == board[7] == board[8] == mark):
 		return True
-	elif (board[1] == board[5] == board[9] == mark) or (board[3] == board[5] == board[7] == mark):
+	elif (board[0] == board[4] == board[8] == mark) or (board[2] == board[4] == board[6] == mark):
 		return True
-	elif (board[1] == board[4] == board[7] == mark) or (board[2] == board[5] == board[8]  == mark) or (board[3] == board[6] == board[9] == mark):
+	elif (board[0] == board[3] == board[6] == mark) or (board[1] == board[4] == board[7]  == mark) or (board[2] == board[5] == board[8] == mark):
 		return True
 	else:
 		return False
@@ -56,10 +57,13 @@ def full_board_check(board):
 			return False
 	return True
 
-def player_choice(board):
-	position = int(input('Select board position (1 - 9): '))
-	if space_check(board, position):
+def player_choice(board,startPlayer):
+	position = int(input(startPlayer + ' select board position (0 - 8): '))
+
+	if space_check(board, position) == True:
 		return position
+	else:
+		player_choice(board, startPlayer)
 
 def replay():
 	return input('Player again  (Y/N)').upper() == 'Y'
@@ -68,18 +72,18 @@ print('Welcome to Tic Tac Toe!')
 
 while True:
     # Set the game up here
-	board = [' ']*10
+	board = [' ']*9
 	player1_marker, player2_marker = player_assign()
 	#startPlayer = choose_first()
 	startPlayer = 'Player 1'
-	print (startPlayer + ' goes first')
+	#print (startPlayer + ' goes first')
 	game_on = True
 
 	while game_on:
 		if startPlayer == 'Player 1':
-			display_board(board)
-			position = player_choice(board)
+			position = player_choice(board,startPlayer)
 			player_input(board,player1_marker,position)
+			display_board(board)
 			if win_check(board,player1_marker) == True:
 				display_board(board)
 				print(startPlayer + ' won!')
@@ -92,9 +96,9 @@ while True:
 				break
 			startPlayer = 'Player 2'
 		elif startPlayer == 'Player 2':
-			display_board(board)
-			position = player_choice(board)
+			position = player_choice(board,startPlayer)
 			player_input(board,player2_marker,position)
+			display_board(board)
 			if win_check(board,player2_marker) == True:
 				display_board(board)
 				print(startPlayer + ' won!')
